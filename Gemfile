@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 
 group :test do
-  gem 'rspec-rails', '~> 3.5.0.beta1'
+  gem 'rspec-rails', '~> 3.5.0.beta4'
   gem 'shoulda-matchers'
 end
 
