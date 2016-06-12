@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+
 group :test do
   gem 'rspec-rails', '~> 3.5.0.beta1'
   gem 'shoulda-matchers'
