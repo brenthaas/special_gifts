@@ -24,6 +24,9 @@ module Wishlist
     config.generators do |g|
       g.template_engine :haml
       g.test_framework  :rspec
+      g.assets     false
+      g.jbuilder   false
+      g.helper     false
     end
   end
 end
