@@ -4,7 +4,7 @@ class CreateWishes < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.text :url
-      t.references :wisher, references: :user, index: true
+      t.belongs_to :wisher, references: :user, index: true
 
       t.timestamps
     end
