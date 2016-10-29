@@ -13,4 +13,6 @@
 
 class Wish < ApplicationRecord
   belongs_to :wisher, class_name: User
+
+  validates :wisher, presence: true
 end

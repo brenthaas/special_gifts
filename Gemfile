@@ -37,7 +37,7 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 group :test do
   gem 'rspec-rails', '~> 3.6.0.beta1'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development, :test do
