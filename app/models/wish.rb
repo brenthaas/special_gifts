@@ -15,4 +15,5 @@ class Wish < ApplicationRecord
   belongs_to :wisher, class_name: User
 
   validates :wisher, presence: true
+  validates :title, presence: true, length: { minimum: 2, maximum: 300 }
 end
