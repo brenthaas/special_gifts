@@ -16,4 +16,5 @@ class Wish < ApplicationRecord
 
   validates :wisher, presence: true
   validates :title, presence: true, length: { minimum: 2, maximum: 300 }
+  validates :url, format: URI::regexp(%w(http https))
 end
