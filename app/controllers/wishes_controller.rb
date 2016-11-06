@@ -1,4 +1,5 @@
 class WishesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_wish, only: [:show, :edit, :update, :destroy]
 
   # GET /wishes
@@ -64,7 +65,7 @@ class WishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wish
-      @wish = Wish.find(params[:id])
+      @wish = Wish.find(params.require(:id).to_i)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
