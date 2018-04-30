@@ -23,7 +23,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :wishes, foreign_key: :wisher_id, inverse_of: :wisher, dependent: :destroy
 
   validates :name, presence: true
+  validates :email, presence: true
 end
