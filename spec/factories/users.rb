@@ -15,10 +15,12 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
 #
 
 FactoryGirl.define do
   factory :user do
+    name { Faker::Name.name }
     email { Faker::Internet.email }
     after(:build) { |u| u.password_confirmation = u.password = 'P@ssw0rd' }
   end

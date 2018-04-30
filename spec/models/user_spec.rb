@@ -18,12 +18,8 @@
 #  name                   :string
 #
 
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  has_many :wishes, foreign_key: :wisher_id, inverse_of: :wisher, dependent: :destroy
+require 'rails_helper'
 
-  validates :name, presence: true
+RSpec.describe User do
+  it { is_expected.to validate_presence_of(:name) }
 end
