@@ -45,7 +45,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
