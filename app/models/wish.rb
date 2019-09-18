@@ -12,7 +12,7 @@
 #
 
 class Wish < ApplicationRecord
-  belongs_to :wisher, class_name: User
+  belongs_to :wisher, class_name: 'User'
 
   validates :wisher, presence: true
   validates :title, presence: true

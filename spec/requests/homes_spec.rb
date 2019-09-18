@@ -18,7 +18,9 @@ RSpec.describe "Homes", type: :request do
         get '/'
       end
 
-      it { is_expected.to have_http_status :ok }
+      it 'has a successful response' do
+        expect(response).to be_ok
+      end
     end
   end
 end
