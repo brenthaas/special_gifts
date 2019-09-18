@@ -24,4 +24,9 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  has_many :wishes, foreign_key: :wisher_id, inverse_of: :wisher, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true
 end
