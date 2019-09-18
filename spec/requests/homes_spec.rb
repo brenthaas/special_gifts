@@ -19,6 +19,7 @@ RSpec.describe "Homes", type: :request do
       end
 
       it 'has a successful response' do
+        binding.pry
         expect(response).to be_ok
       end
     end

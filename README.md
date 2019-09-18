@@ -1,5 +1,24 @@
-# Special Gifts
+# README
 
-A way to share what gifts and special events you want, and a way to coordinate to give people gifts they desire
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-This is a small project with no warranties. :)
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

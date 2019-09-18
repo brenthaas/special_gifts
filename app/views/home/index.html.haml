@@ -1,20 +1,3 @@
-%h2.container.hero Special Gifts
+%h2.container.hero Wishlist
 %h3.title
-  Welcome to your special wishlist
-  = current_user.name
-  !
-
-%h3 Your Wishes
-%table.table.wishes
-  %tr.wish-header
-    %th.wish-title Title
-    %th.wish-description Description
-    %th.wish-url URL
-  - current_user.wishes.each do |wish|
-    %tr.wish
-      %td
-        = wish.title
-      %td
-        = wish.description
-      %td
-        = wish.url
+  Welcome to the Wishlist App!
