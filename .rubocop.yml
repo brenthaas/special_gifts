@@ -1,1 +1,27 @@
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - bin/bundle
+    - node_modules/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - db/*
+
+Metrics/MethodLength:
+  Exclude:
+    - db/**/*
+
+Metrics/LineLength:
+  Exclude:
+    - bin/**/*
+    - config/initializers/backtrace_silencers.rb
+    - config/initializers/content_security_policy.rb
+    - config/initializers/devise.rb
+    - db/*
+
+Style/Documentation:
+  Exclude:
+    - db/**/*
+    - config/**/*

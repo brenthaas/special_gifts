@@ -19,6 +19,7 @@
 #  name                   :string
 #
 
+# User - kinda obvious, no?
 class User < ApplicationRecord
   devise :confirmable,
          :database_authenticatable,
@@ -27,7 +28,10 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :wishes, foreign_key: :wisher_id, inverse_of: :wisher, dependent: :destroy
+  has_many :wishes,
+           foreign_key: :wisher_id,
+           inverse_of: :wisher,
+           dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true
