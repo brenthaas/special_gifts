@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: wishes
@@ -10,6 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
+# A wish the user has for a special gift
 class Wish < ApplicationRecord
   belongs_to :wisher, class_name: 'User'
 

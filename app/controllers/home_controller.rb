@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Non-authenticated pages
 class HomeController < ApplicationController
   before_action :check_auth
 

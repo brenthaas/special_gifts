@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: wishes
@@ -14,7 +16,7 @@
 FactoryBot.define do
   factory :wish do
     association :wisher, factory: :user
-    
+
     title       { Faker::Hipster.sentence }
     description { Faker::Hipster.paragraph }
     url         { Faker::Internet.url }
