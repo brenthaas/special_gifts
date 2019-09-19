@@ -14,12 +14,20 @@
   %tbody
     - @wishes.each do |wish|
       %tr
-        %td= link_to wish.title, user_wish_path(user_id: params[:user_id], id: wish.id)
+        %td
+          = link_to wish.title,
+            user_wish_path(user_id: params[:user_id], id: wish.id)
         %td= wish.description
         %td= wish.url
         %td= wish.wisher.email
-        %td= link_to 'Edit', edit_user_wish_path(user_id: params[:user_id], id: wish.id)
-        %td= link_to 'Destroy', user_wish_path(user_id: params[:user_id], id: wish.id), method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Edit',
+            edit_user_wish_path(user_id: params[:user_id], id: wish.id)
+        %td
+          = link_to 'Destroy',
+            user_wish_path(user_id: params[:user_id], id: wish.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }
 
 %br
 
