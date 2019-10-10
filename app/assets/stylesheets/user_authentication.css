@@ -1,0 +1,8 @@
+.login-container {
+  display: grid;
+}
+
+.login-window {
+  justify-self: center;
+  justify-content: center;
+}
