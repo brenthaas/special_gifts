@@ -1,3 +1,5 @@
 .container.hero
   %h2 Wishlist
-  %h3 What do you want?
+  %ul.toc_options
+    %li.option_large
+      = link_to 'Your Wishes', user_wishes_path(@current_user)
