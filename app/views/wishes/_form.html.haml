@@ -1,4 +1,4 @@
-= form_for wish do |f|
+= form_with model: wish, url: user_wishes_path(wish.wisher) do |f|
   - if wish.errors.any?
     #error-explanation
       %h2
@@ -17,8 +17,5 @@
   .field
     = f.label :url
     = f.text_area :url
-  .field
-    = f.label :wisher
-    = f.text_field :wisher
   .actions
     = f.submit 'Save'
