@@ -1,5 +1,5 @@
 class WishesController < ApplicationController
-  before_action :load_wish, only: %i[show edit update]
+  before_action :load_wish, only: %i[show edit update delete]
   before_action :check_authorization, only: %i[index new create]
 
   def create
@@ -11,6 +11,17 @@ class WishesController < ApplicationController
       flash[:alert] = 'Unable to save wish: ' \
         "#{created_wish.errors.full_messages.to_sentence}"
       render :new
+    end
+  end
+
+  def destroy
+    if @wish.destroy
+      flash[:notice] = "Wish for '#{@wish.title}' destroyed"
+      redirect_to user_wishes_path(current_user)
+    else
+      flash[:alert] = 'Unable to delete wish: ' \
+        "#{created_wish.errors.full_messages.to_sentence}"
+      redirect_to user_wishes_path(current_user)
     end
   end
 
