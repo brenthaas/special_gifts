@@ -5,7 +5,6 @@
     %tr
       %th Title
       %th Description
-      %th Url
       %th Wisher
       %th
       %th
@@ -14,18 +13,13 @@
   %tbody
     - @wishes.each do |wish|
       %tr
-        %td
-          = link_to wish.title,
-            user_wish_path(user_id: params[:user_id], id: wish.id)
+        %td= link_to wish.title, wish_path(wish)
         %td= wish.description
-        %td= wish.url
         %td= wish.wisher.email
-        %td
-          = link_to 'Edit',
-            edit_user_wish_path(user_id: params[:user_id], id: wish.id)
+        %td= link_to 'Edit', edit_wish_path(wish)
         %td
           = link_to 'Destroy',
-            user_wish_path(user_id: params[:user_id], id: wish.id),
+            wish_path(wish),
             method: :delete,
             data: { confirm: 'Are you sure?' }
 

@@ -1,5 +1,7 @@
 %h1 New wish
 
-= render partial: 'form', locals: { wish: current_user.wishes.build }
+= render partial: 'form',
+  locals: { wish: current_user.wishes.build,
+  submit_url: user_wishes_path(current_user) }
 
 = link_to 'Back', user_wishes_path(current_user)

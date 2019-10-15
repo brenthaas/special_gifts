@@ -1,7 +1,8 @@
 %h1 Editing wish
 
-= render 'form'
+= render partial: 'form',
+  locals: { wish: @wish, submit_url: wish_path(@wish) }
 
 = link_to 'Show', @wish
 \|
-= link_to 'Back', user_wishes_path
+= link_to "Back To #{@wisher_name} Wishes", user_wishes_path(@wish.wisher)

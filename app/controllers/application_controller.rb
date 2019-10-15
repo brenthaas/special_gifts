@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  delegate :alert, :notice, to: :flash
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   protected
