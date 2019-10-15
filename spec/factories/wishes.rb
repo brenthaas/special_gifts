@@ -4,11 +4,10 @@
 #
 # Table name: wishes
 #
-#  id          :integer          not null, primary key
-#  title       :string
+#  id          :bigint           not null, primary key
+#  title       :text
 #  description :text
-#  url         :text
-#  wisher_id   :integer
+#  wisher_id   :bigint
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
