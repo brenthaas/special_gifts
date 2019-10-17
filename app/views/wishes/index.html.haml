@@ -1,28 +1,32 @@
-%h1 Listing wishes
+-# %h1 Listing wishes
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Title
+-#       %th Description
+-#       %th Wisher
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @wishes.each do |wish|
+-#       %tr
+-#         %td= link_to wish.title, wish_path(wish)
+-#         %td= wish.description
+-#         %td= wish.wisher.email
+-#         %td= link_to 'Edit', edit_wish_path(wish)
+-#         %td
+-#           = link_to 'Destroy',
+-#             wish_path(wish),
+-#             method: :delete,
+-#             data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Wish', new_user_wish_path
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Wisher
-      %th
-      %th
-      %th
+= javascript_pack_tag 'application'
 
-  %tbody
-    - @wishes.each do |wish|
-      %tr
-        %td= link_to wish.title, wish_path(wish)
-        %td= wish.description
-        %td= wish.wisher.email
-        %td= link_to 'Edit', edit_wish_path(wish)
-        %td
-          = link_to 'Destroy',
-            wish_path(wish),
-            method: :delete,
-            data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Wish', new_user_wish_path
+= react_component 'Wishes', { wishes: @wishes }

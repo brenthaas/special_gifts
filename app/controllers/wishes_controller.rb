@@ -31,6 +31,7 @@ class WishesController < ApplicationController
 
   def index
     @wishes = current_user.wishes
+    # render component: 'Wishes', props: {wishes: @wishes.to_a}
   end
 
   def show

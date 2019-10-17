@@ -24,5 +24,6 @@ FactoryBot.define do
     name { Faker::Name.name }
     email { Faker::Internet.email }
     after(:build) { |u| u.password_confirmation = u.password = 'P@ssw0rd' }
+    confirmed_at { 2.years.ago }
   end
 end
