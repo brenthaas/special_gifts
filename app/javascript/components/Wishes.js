@@ -7,7 +7,7 @@ class Wishes extends React.Component {
         <h1>Your Wishes</h1>
         <ul>
           {this.props.wishes.map(wish => (
-            <li key={wish.id}>{`${wish.title} - "${wish.description}"`}</li>
+            <li key={wish.id}>{`${wish.title} - ${wish.description}`}</li>
           ))}
         </ul>
       </React.Fragment>
