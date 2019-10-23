@@ -30,7 +30,7 @@ class WishesController < ApplicationController
   end
 
   def index
-    @wishes = current_user.wishes
+    @wishes = current_user.wishes.decorate
     # render component: 'Wishes', props: {wishes: @wishes.to_a}
   end
 

@@ -1,8 +1,9 @@
 %nav
   %ul.navbar
-    %li
-      = link_to 'My Wishes', user_wishes_path(current_user)
-    %li Friends
+    - if current_user
+      %li
+        = link_to 'My Wishes', user_wishes_path(current_user)
+      %li Friends
     %li.sign-out
       - if signed_in?
         = link_to 'Sign-out', destroy_user_session_path, method: :delete
