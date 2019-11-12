@@ -15,3 +15,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore locally installed js
+/node_modules
+/public/packs/manifest.json
