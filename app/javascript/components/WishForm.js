@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
-class WishesContainer extends Component {
+class WishForm extends Component {
   render () {
     return (
       <div>
@@ -18,4 +18,4 @@ class WishesContainer extends Component {
   }
 }
 
-export default WishesContainer
+export default WishForm
