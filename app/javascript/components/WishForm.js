@@ -5,13 +5,22 @@ class WishForm extends Component {
   render () {
     return (
       <div>
-      	<div className="inputContainer">
-      	  <input className="wishInput" type="text"
-            placeholder="Add a wish" maxLength="50" />
-      	</div>
-      	<div className="listWrapper">
-      	   <ul className="taskList">
-      	   </ul>
+        <div className="inputContainer">
+          <div className="wish-fields">
+            <input className="wish-title-input"
+              type="text"
+              placeholder="Title"
+              maxLength="50" />
+            <input className="wish-title-input"
+              type="text"
+              placeholder="Description"
+              maxLength="70" />
+          </div>
+          <div className="wish-actions">
+            <button className="make-wish-button" type='submit'>
+              Make Wish
+            </button>
+          </div>
       	</div>
       </div>
     );

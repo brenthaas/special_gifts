@@ -14,26 +14,17 @@ const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <div>home!</div>,
+    sidebar_link_name: 'Home',
     main: () => <h2>Home</h2>
   },
   {
     path: "/my_wishes",
-    sidebar: () => <div>My Wishes</div>,
-    main: () => {
-      return (
-        <div className='header'>
-          <h1>Wish List</h1>
-          <div>
-            <MyWishList />
-          </div>
-        </div>
-      );
-    }
+    sidebar_link_name: 'My Wishes',
+    main: () => <MyWishList />
   },
   {
     path: "/add_wish",
-    sidebar: () => <div>Add a Wish</div>,
+    sidebar_link_name: 'Add A Wish',
     main: () => {
       return (
         <WishForm />
@@ -48,15 +39,11 @@ function WishesApp() {
       <Router>
         <div className='sidebar'>
           <ul className='sidebar-nav'>
-            <li className='sidebar-nav-item'>
-              <Link to='/'>Home</Link>
-            </li>
-            <li className='sidebar-nav-item'>
-              <Link to='/my_wishes'>My Wishes</Link>
-            </li>
-            <li className='sidebar-nav-item'>
-              <Link to='/add_wish'>Add A Wish</Link>
-            </li>
+            {routes.map((route, index) => (
+              <li className='sidebar-nav-item' key={index}>
+                <Link to={route.path}>{route.sidebar_link_name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
