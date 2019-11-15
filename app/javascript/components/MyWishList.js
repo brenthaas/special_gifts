@@ -7,7 +7,7 @@ const MyWishList = () => {
 
   return (
     <div>
-      <p> There are { state.myWishes.length } wishes</p>
+      <p> You currently have { state.myWishes.length } wishes</p>
       <ul>
         {state.myWishes.map(wish => (
           <Wish key={wish.id} {...wish} />
