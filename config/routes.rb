@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :wishes, shallow: true
     end
   end
+
+  get '*path', to: 'home#index'
 end
