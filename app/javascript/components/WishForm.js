@@ -17,7 +17,7 @@ class WishForm extends Component {
               maxLength="70" />
           </div>
           <div className="wish-actions">
-            <button className="make-wish-button" type='submit'>
+            <button className="make-wish-button" type="submit">
               Make Wish
             </button>
           </div>

@@ -37,27 +37,29 @@ function WishesApp() {
   return (
     <MyWishesContextProvider>
       <Router>
-        <div className='sidebar'>
-          <ul className='sidebar-nav'>
-            {routes.map((route, index) => (
-              <li className='sidebar-nav-item' key={index}>
-                <Link to={route.path}>{route.sidebar_link_name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className='wishlist-app'>
+          <div className='sidebar'>
+            <ul className='sidebar-nav'>
+              {routes.map((route, index) => (
+                <li className='sidebar-nav-item' key={index}>
+                  <Link to={route.path}>{route.sidebar_link_name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className='main'>
-          <Switch>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.main />}
-              />
-            ))}
-          </Switch>
+          <div className='main'>
+            <Switch>
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  children={<route.main />}
+                />
+              ))}
+            </Switch>
+          </div>
         </div>
       </Router>
     </MyWishesContextProvider>
