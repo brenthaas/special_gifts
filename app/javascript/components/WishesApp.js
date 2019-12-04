@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-import WishForm from './WishForm'
+import AddWish from './AddWish'
 import MyWishList from './MyWishList'
 import { MyWishesContextProvider } from './../contexts/MyWishesContext';
 
@@ -25,11 +25,7 @@ const routes = [
   {
     path: "/add_wish",
     sidebar_link_name: 'Add A Wish',
-    main: () => {
-      return (
-        <WishForm />
-      );
-    }
+    main: () => <AddWish />
   }
 ];
 

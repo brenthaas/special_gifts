@@ -1,11 +1,15 @@
 import React, { useReducer, createContext, useEffect } from 'react';
-import myWishesReducer, { LOAD_WISHES } from './../reducers/MyWishesReducer';
+import myWishesReducer, { LOAD_WISHES, ADD_WISH } from './../reducers/MyWishesReducer';
 
 const MyWishesContext = createContext();
 
 const initialState = {
   myWishes: []
 };
+
+function addWish(wish) {
+  debugger;
+}
 
 function MyWishesContextProvider(props) {
   const [state, dispatch] = useReducer(myWishesReducer, initialState);
@@ -34,4 +38,4 @@ function MyWishesContextProvider(props) {
 }
 const MyWishesContextConsumer = MyWishesContext.Consumer;
 
-export { MyWishesContext, MyWishesContextProvider, MyWishesContextConsumer };
+export { addWish, MyWishesContext, MyWishesContextProvider, MyWishesContextConsumer };
