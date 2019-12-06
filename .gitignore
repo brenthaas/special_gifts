@@ -18,4 +18,4 @@
 
 # Ignore locally installed js
 /node_modules
-/public/packs/manifest.json
+/public/packs
