@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { CookiesProvider, withCookies } from 'react-cookie';
 
 import AddWish from './AddWish'
 import MyWishList from './MyWishList'
@@ -31,35 +32,37 @@ const routes = [
 
 function WishesApp() {
   return (
-    <MyWishesContextProvider>
-      <Router>
-        <div className='wishlist-app'>
-          <div className='sidebar'>
-            <ul className='sidebar-nav'>
-              {routes.map((route, index) => (
-                <li className='sidebar-nav-item' key={index}>
-                  <Link to={route.path}>{route.sidebar_link_name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <CookiesProvider>
+      <MyWishesContextProvider>
+        <Router>
+          <div className='wishlist-app'>
+            <div className='sidebar'>
+              <ul className='sidebar-nav'>
+                {routes.map((route, index) => (
+                  <li className='sidebar-nav-item' key={index}>
+                    <Link to={route.path}>{route.sidebar_link_name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className='main'>
-            <Switch>
-              {routes.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  children={<route.main />}
-                />
-              ))}
-            </Switch>
+            <div className='main'>
+              <Switch>
+                {routes.map((route, index) => (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    children={<route.main />}
+                  />
+                ))}
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
-    </MyWishesContextProvider>
+        </Router>
+      </MyWishesContextProvider>
+    </CookiesProvider>
   );
 }
 
-export default WishesApp;
+export default withCookies(WishesApp);

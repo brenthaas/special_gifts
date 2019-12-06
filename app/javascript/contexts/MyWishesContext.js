@@ -7,16 +7,13 @@ const initialState = {
   myWishes: []
 };
 
-function addWish(wish) {
-  debugger;
-}
-
 function MyWishesContextProvider(props) {
   const [state, dispatch] = useReducer(myWishesReducer, initialState);
   const value = { state, dispatch };
 
   const fetchMyWishes = () => {
     function fetchData() {
+      // Placeholder URL to get this working for the timebeing
       fetch('http://localhost:3000/api/v1/users/1/wishes')
         .then(response => response.json())
         .then((data) => {
@@ -38,4 +35,4 @@ function MyWishesContextProvider(props) {
 }
 const MyWishesContextConsumer = MyWishesContext.Consumer;
 
-export { addWish, MyWishesContext, MyWishesContextProvider, MyWishesContextConsumer };
+export { MyWishesContext, MyWishesContextProvider, MyWishesContextConsumer };
