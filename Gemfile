@@ -17,8 +17,6 @@ gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
 # Use React
 gem "react-rails", "~> 2.6"
-# JSON Web Tokens
-gem 'jwt'
 # Turbolinks makes navigating your web application faster.
 #   Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
