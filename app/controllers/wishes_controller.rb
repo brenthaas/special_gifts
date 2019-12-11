@@ -30,8 +30,12 @@ class WishesController < ApplicationController
   end
 
   def index
-    user_wishes = current_user.wishes
-    render json: user_wishes
+    if params[:user_id] == current_user.id.to_s
+      user_wishes = current_user.wishes
+      render json: user_wishes
+    else
+      not_found
+    end
   end
 
   def show
@@ -52,7 +56,7 @@ class WishesController < ApplicationController
   private
 
   def check_authorization
-    not_found unless current_user.id.to_s == params[:user_id]
+    not_found unless user_signed_in?
   end
 
   def load_wish
