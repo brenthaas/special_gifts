@@ -1,10 +1,11 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import { CookiesProvider, withCookies } from 'react-cookie';
 
 import AddWish from './AddWish'
@@ -30,11 +31,13 @@ const routes = [
   }
 ];
 
+const history = createBrowserHistory();
+
 function WishesApp() {
   return (
     <CookiesProvider>
       <MyWishesContextProvider>
-        <Router>
+        <Router history={history}>
           <div className='wishlist-app'>
             <div className='sidebar'>
               <ul className='sidebar-nav'>

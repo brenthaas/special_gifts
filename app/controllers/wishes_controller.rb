@@ -6,11 +6,10 @@ class WishesController < ApplicationController
     created_wish = current_user.wishes.build(wish_params)
 
     if created_wish.save
-      redirect_to user_wishes_path(current_user)
+      render json: created_wish
     else
-      flash[:alert] = 'Unable to save wish: ' \
-        "#{created_wish.errors.full_messages.to_sentence}"
-      render :new
+      render json: { errors: created_wish.errors },
+             status: :unprocessable_entity
     end
   end
 

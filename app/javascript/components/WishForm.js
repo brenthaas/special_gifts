@@ -10,7 +10,8 @@ const WishForm = ({wish = {}, onSubmit}) => {
     setWish({...formWish, [name]: value});
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     onSubmit(formWish);
   };
 
