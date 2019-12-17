@@ -25,8 +25,9 @@ const WishForm = ({wish = {}, onSubmit}) => {
               placeholder="Title"
               name='title'
               onChange={handleChange}
-              maxLength="50" />
-            <input className="wish-title-input"
+              maxLength="50"
+              required />
+            <input className="wish-description-input"
               type="text"
               placeholder="Description"
               name='description'
