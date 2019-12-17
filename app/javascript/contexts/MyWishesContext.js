@@ -11,20 +11,24 @@ function MyWishesContextProvider(props) {
   const [state, dispatch] = useReducer(myWishesReducer, initialState);
   const value = { state, dispatch };
 
-  const fetchMyWishes = () => {
-    function fetchData() {
+  async function fetchWishes() {
+    try {
       // Placeholder URL to get this working for the timebeing
-      fetch('http://localhost:3000/api/v1/users/1/wishes')
-        .then(response => response.json())
-        .then((data) => {
-          dispatch({type: LOAD_WISHES, payload: data })
-        });
-    };
-    fetchData();
+      const fetchedWishes = await fetch('http://localhost:3000/api/v1/users/1/wishes');
+
+      const myWishes = await fetchedWishes.json();
+
+      if (!fetchedWishes.ok) {
+        throw new Error('Error response code - ' + fetchWishes.status)
+      }
+      dispatch({type: LOAD_WISHES, payload: myWishes })
+    } catch (err) {
+      console.error('Error fetching Wishes: ' + err)
+    }
   };
 
   useEffect(() => {
-    fetchMyWishes()
+    fetchWishes()
   }, []);
 
   return (
