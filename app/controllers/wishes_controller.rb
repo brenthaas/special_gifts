@@ -6,11 +6,10 @@ class WishesController < ApplicationController
     created_wish = current_user.wishes.build(wish_params)
 
     if created_wish.save
-      redirect_to user_wishes_path(current_user)
+      render json: created_wish
     else
-      flash[:alert] = 'Unable to save wish: ' \
-        "#{created_wish.errors.full_messages.to_sentence}"
-      render :new
+      render json: { errors: created_wish.errors },
+             status: :unprocessable_entity
     end
   end
 
@@ -30,7 +29,12 @@ class WishesController < ApplicationController
   end
 
   def index
-    @wishes = current_user.wishes
+    if params[:user_id] == current_user.id.to_s
+      user_wishes = current_user.wishes
+      render json: user_wishes
+    else
+      not_found
+    end
   end
 
   def show
@@ -51,7 +55,7 @@ class WishesController < ApplicationController
   private
 
   def check_authorization
-    not_found unless current_user.id.to_s == params[:user_id]
+    not_found unless user_signed_in?
   end
 
   def load_wish

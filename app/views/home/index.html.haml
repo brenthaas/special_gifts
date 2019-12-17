@@ -1,5 +1,5 @@
-.container.hero
-  %h2 Wishlist
-  %ul.toc_options
-    %li.option_large
-      = link_to 'Your Wishes', user_wishes_path(@current_user)
+- if @current_user
+  = react_component 'WishesApp'
+- else
+  .container.hero
+    %h2 Wishlist

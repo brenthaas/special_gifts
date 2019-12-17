@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users, only: %i[index show] do
-    resources :wishes, shallow: true
+  scope '/api/v1' do
+    resources :users, only: %i[index show] do
+      resources :wishes, shallow: true
+    end
   end
+
+  get '*path', to: 'home#index'
 end
