@@ -19,3 +19,6 @@
 # Ignore locally installed js
 /node_modules
 /public/packs
+
+# Ignore private vars
+/config/master.key
