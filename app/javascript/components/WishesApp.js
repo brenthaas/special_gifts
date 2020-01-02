@@ -8,8 +8,8 @@ import {
 import { createBrowserHistory } from "history";
 import { CookiesProvider, withCookies } from 'react-cookie';
 
-import AddWish from './AddWish'
-import MyWishList from './MyWishList'
+import AddWish from './AddWish';
+import MyWishList from './MyWishList';
 import { MyWishesContextProvider } from './../contexts/MyWishesContext';
 
 const routes = [

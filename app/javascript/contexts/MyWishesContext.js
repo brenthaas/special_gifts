@@ -19,13 +19,13 @@ function MyWishesContextProvider(props) {
       const myWishes = await fetchedWishes.json();
 
       if (!fetchedWishes.ok) {
-        throw new Error('Error response code - ' + fetchWishes.status)
+        throw new Error('Error response code - ' + fetchWishes.status);
       }
-      dispatch({type: LOAD_WISHES, payload: myWishes })
+      dispatch({type: LOAD_WISHES, payload: myWishes });
     } catch (err) {
-      console.error('Error fetching Wishes: ' + err)
+      console.error('Error fetching Wishes: ' + err);
     }
-  };
+  }
 
   useEffect(() => {
     fetchWishes()

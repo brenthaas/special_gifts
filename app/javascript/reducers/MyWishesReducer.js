@@ -14,6 +14,6 @@ const myWishesReducer = (state, { type, payload }) => {
     default:
       return state;
   }
-};
+}
 
 export default myWishesReducer;

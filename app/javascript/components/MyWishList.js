@@ -15,6 +15,6 @@ const MyWishList = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default MyWishList;

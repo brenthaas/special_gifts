@@ -11,11 +11,11 @@ const Wish = ({ id, title, description }) => {
       <span className='wish-description'>{description}</span>
     </li>
   );
-};
+}
 
 Wish.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string
-};
+}
 
 export default Wish;

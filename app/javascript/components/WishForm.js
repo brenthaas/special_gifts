@@ -8,12 +8,12 @@ const WishForm = ({wish = {}, onSubmit}) => {
   const handleChange = event => {
     const {name, value} = event.target;
     setWish({...formWish, [name]: value});
-  };
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(formWish);
-  };
+  }
 
   return (
     <div>
@@ -46,4 +46,4 @@ const WishForm = ({wish = {}, onSubmit}) => {
   );
 }
 
-export default WishForm
+export default WishForm;
