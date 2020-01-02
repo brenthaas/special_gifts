@@ -7,40 +7,42 @@ import WishForm from './WishForm';
 
 const AddWish = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['CSRF-TOKEN']);
-  const globalState = useContext(MyWishesContext);
-  const { dispatch } = globalState;
+  const { state, dispatch } = useContext(MyWishesContext);
 
   const history = useHistory();
 
-  async function addWish(wish) {
-    try {
-      // Placeholder URL to get this working for the timebeing
-      const response = await fetch('http://localhost:3000/api/v1/users/1/wishes', {
-        method: 'POST',
-        body: JSON.stringify(wish),
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': cookies['CSRF-TOKEN']
-        }
-      });
+  const handleSubmit = wish => {
+    async function addWish(wish, url) {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(wish),
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': cookies['CSRF-TOKEN']
+          }
+        });
 
-      const responseBody = await response.json();
+        const responseBody = await response.json();
 
-      if (!response.ok) {
-        if ('errors' in responseBody) {
-          throw new Error(JSON.stringify(responseBody['errors']));
+        if (!response.ok) {
+          if ('errors' in responseBody) {
+            throw new Error(JSON.stringify(responseBody['errors']));
+          }
+          throw new Error('Unable to create wish');
         }
-        throw new Error('Unable to create wish');
+        dispatch({ type: ADD_WISH, payload: responseBody });
+        history.push('/my_wishes');
+      } catch(err) {
+        console.error('Error contacting API: ' + err);
       }
-      dispatch({ type: ADD_WISH, payload: responseBody });
-      history.push('/my_wishes');
-    } catch(err) {
-      console.error('Error contacting API: ' + err);
     }
+
+    addWish(wish, `${state.host}${state.apiPath}/users/${state.userid}/wishes`)
   }
 
   return (
-    <WishForm wish={{}} onSubmit={addWish}/>
+    <WishForm wish={{}} onSubmit={handleSubmit}/>
   );
 }
 
