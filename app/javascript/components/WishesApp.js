@@ -33,10 +33,12 @@ const routes = [
 
 const history = createBrowserHistory();
 
-function WishesApp() {
+function WishesApp(props) {
+  const { cookies, allCookies, ...state} = props
+
   return (
     <CookiesProvider>
-      <MyWishesContextProvider>
+      <MyWishesContextProvider {...state}>
         <Router history={history}>
           <div className='wishlist-app'>
             <div className='sidebar'>

@@ -3,32 +3,32 @@ import myWishesReducer, { LOAD_WISHES, ADD_WISH } from './../reducers/MyWishesRe
 
 export const MyWishesContext = createContext();
 
-const initialState = {
-  myWishes: []
-};
-
 function MyWishesContextProvider(props) {
+  const initialState = {
+    ...props,
+    myWishes: []
+  };
+
   const [state, dispatch] = useReducer(myWishesReducer, initialState);
   const value = { state, dispatch };
 
-  async function fetchWishes() {
+  async function fetchWishes(state) {
     try {
-      // Placeholder URL to get this working for the timebeing
-      const fetchedWishes = await fetch('http://localhost:3000/api/v1/users/1/wishes');
-
+      const myWishesURL = `${state.host}${state.apiPath}/users/${state.userid}/wishes`
+      const fetchedWishes = await fetch(myWishesURL);
       const myWishes = await fetchedWishes.json();
 
       if (!fetchedWishes.ok) {
-        throw new Error('Error response code - ' + fetchWishes.status);
+        throw new Error('Error response code - ', fetchWishes.status);
       }
       dispatch({type: LOAD_WISHES, payload: myWishes });
     } catch (err) {
-      console.error('Error fetching Wishes: ' + err);
+      console.error('Error fetching Wishes: ', err);
     }
   }
 
   useEffect(() => {
-    fetchWishes()
+    fetchWishes(state)
   }, []);
 
   return (

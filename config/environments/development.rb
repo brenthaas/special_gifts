@@ -29,6 +29,9 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
 
     config.cache_store = :null_store
+
+    config.hostname = 'http://localhost:3000'
+    config.api_path = '/api/v1'
   end
 
   # Store uploaded files on the local file system

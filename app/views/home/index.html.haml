@@ -1,5 +1,8 @@
 - if @current_user
-  = react_component 'WishesApp'
+  = react_component 'WishesApp',
+    userid: @current_user.id,
+    host: Rails.configuration.hostname,
+    apiPath: Rails.configuration.api_path
 - else
   .container.hero
     %h2 Wishlist
