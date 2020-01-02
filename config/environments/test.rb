@@ -46,6 +46,9 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  config.hostname = 'http://localhost:6000'
+  config.api_path = '/api/v1'
+
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
   routes.default_url_options[:host] = 'localhost:6000'
