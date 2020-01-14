@@ -4,8 +4,9 @@
 
 .wishlist-app {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "sidebar main main";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "header header header header"
+                       "sidebar main main main";
   grid-column-gap: 10px;
   justify-items: center;
 }

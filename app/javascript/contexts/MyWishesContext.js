@@ -1,5 +1,6 @@
 import React, { useReducer, createContext, useEffect } from 'react';
-import myWishesReducer, { LOAD_WISHES, ADD_WISH } from './../reducers/MyWishesReducer';
+import { fetchWishes } from './../api/Wishes';
+import myWishesReducer from './../reducers/MyWishesReducer';
 
 export const MyWishesContext = createContext();
 

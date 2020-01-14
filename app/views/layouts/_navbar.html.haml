@@ -1,7 +1,7 @@
 %nav
   %ul.navbar
     - if current_user
-      %li Welcome to Wishlist!
+      %li Wishlist!
     %li.sign-out
       - if signed_in?
         = link_to 'Sign-out', destroy_user_session_path, method: :delete

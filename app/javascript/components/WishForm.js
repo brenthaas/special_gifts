@@ -23,16 +23,16 @@ const WishForm = ({wish = {}, onSubmit}) => {
             <input className="wish-title-input"
               type="text"
               placeholder="Title"
-              name='title'
+              name="title"
               onChange={handleChange}
-              maxLength="50"
+              maxLength="80"
               required />
-            <input className="wish-description-input"
-              type="text"
+            <textarea className="wish-description-input"
               placeholder="Description"
-              name='description'
+              name="description"
+              rows="8"
               onChange={handleChange}
-              maxLength="70" />
+              maxLength="700" />
           </div>
           <div className="wish-actions">
             <button className="make-wish-button"

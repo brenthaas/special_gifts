@@ -43,11 +43,14 @@ function WishesApp(props) {
           <div className='wishlist-app'>
             <div className='sidebar'>
               <ul className='sidebar-nav'>
-                {routes.map((route, index) => (
-                  <li className='sidebar-nav-item' key={index}>
-                    <Link to={route.path}>{route.sidebar_link_name}</Link>
+                <li className='sidebar-nav-item' key='myWishes'>
+                  <Link to='/my_wishes'>My Wishes</Link>
+                </li>
+                <ul>
+                  <li className='sidebar-nav-item' key='AddWish'>
+                    <Link to='/add_wish'>Add Wish</Link>
                   </li>
-                ))}
+                </ul>
               </ul>
             </div>
 

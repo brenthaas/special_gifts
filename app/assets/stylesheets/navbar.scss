@@ -1,8 +1,6 @@
 ul.navbar {
   display: grid;
-  grid-template-columns: [header-start] 1fr 1fr 1fr 1fr [header-end];
-  justify-items: left;
-  text-align: left;
+  grid-template-columns: [header-start] repeat(4, 1fr) [header-end];
   list-style-type: none;
   margin: 0;
   padding: 0;
