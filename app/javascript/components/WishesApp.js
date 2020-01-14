@@ -9,26 +9,14 @@ import { createBrowserHistory } from "history";
 import { CookiesProvider, withCookies } from 'react-cookie';
 
 import AddWish from './AddWish';
+import Wish from './Wish';
 import MyWishList from './MyWishList';
 import { MyWishesContextProvider } from './../contexts/MyWishesContext';
 
 const routes = [
-  {
-    path: "/",
-    exact: true,
-    sidebar_link_name: 'Home',
-    main: () => <h2>Home</h2>
-  },
-  {
-    path: "/my_wishes",
-    sidebar_link_name: 'My Wishes',
-    main: () => <MyWishList />
-  },
-  {
-    path: "/add_wish",
-    sidebar_link_name: 'Add A Wish',
-    main: () => <AddWish />
-  }
+  { path: "/my_wishes", main: () => <MyWishList /> },
+  { path: "/wish/:id", main: () => <Wish /> },
+  { path: "/add_wish", main: () => <AddWish /> }
 ];
 
 const history = createBrowserHistory();

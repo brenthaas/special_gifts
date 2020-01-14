@@ -1,21 +1,23 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react'
+import { useHistory, useParams } from "react-router-dom";
 import { MyWishesContext } from './../contexts/MyWishesContext';
 
-const Wish = ({ id, title, description }) => {
-  const { dispatch } = useContext(MyWishesContext);
-  return (
-    <li key={id} className='wish-item'>
-      <span className='wish-title'>{title}</span>
-      &nbsp; &mdash; &nbsp;
-      <span className='wish-description'>{description}</span>
-    </li>
-  );
-}
+const Wish = () => {
+  const history = useHistory();
+  const { state } = useContext(MyWishesContext);
+  const { id } = useParams();
 
-Wish.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string
+  const wish = state.myWishes.find( wish => wish.id == id );
+
+  return (
+    <div>
+      <h3>{wish.title}</h3>
+      <dl>
+        <dt>Description:</dt>
+        <dd>{wish.description}</dd>
+      </dl>
+    </div>
+  );
 }
 
 export default Wish;
