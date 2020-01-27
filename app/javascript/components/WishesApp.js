@@ -1,12 +1,12 @@
 import React from 'react';
+import { createBrowserHistory } from "history";
+import { CookiesProvider, withCookies } from 'react-cookie';
 import {
   Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import { createBrowserHistory } from "history";
-import { CookiesProvider, withCookies } from 'react-cookie';
 
 import AddWish from './AddWish';
 import Wish from './Wish';
@@ -44,14 +44,16 @@ function WishesApp(props) {
 
             <div className='main'>
               <Switch>
-                {routes.map((route, index) => (
-                  <Route
-                    key={index}
-                    path={route.path}
-                    exact={route.exact}
-                    children={<route.main />}
-                  />
-                ))}
+                {routes.map((route, index) => {
+                  return (
+                    <Route
+                      key={index}
+                      path={route.path}
+                      exact={route.exact}
+                      children={<route.main />}
+                    />
+                  );
+                })}
               </Switch>
             </div>
           </div>

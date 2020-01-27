@@ -9,15 +9,21 @@ const Wish = () => {
 
   const wish = state.myWishes.find( wish => wish.id == id );
 
-  return (
-    <div>
-      <h3>{wish.title}</h3>
-      <dl>
-        <dt>Description:</dt>
-        <dd>{wish.description}</dd>
-      </dl>
-    </div>
-  );
+  if (wish) {
+    return (
+      <div>
+        <h3>{wish.title}</h3>
+        <dl>
+          <dt>Description:</dt>
+          <dd>{wish.description}</dd>
+        </dl>
+      </div>
+    );
+  } else {
+    return (
+      <div>Nothing to see here</div>
+    );
+  }
 }
 
 export default Wish;
