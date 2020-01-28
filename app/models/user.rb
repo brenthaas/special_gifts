@@ -34,9 +34,7 @@ class User < ApplicationRecord
            dependent: :destroy
 
   has_many :friend_requests, dependent: :destroy
-  has_many :friends,
-           through: :friend_requests,
-           source: :requested_friend
+  has_many :friends, through: :friend_requests, source: :requested_friend
 
   validates :name, presence: true
   validates :email, presence: true
