@@ -33,6 +33,11 @@ RSpec.describe FriendRequest, type: :model do
         expect { accepted_request.accept! }
           .not_to change(friend_request, :accepted_at)
       end
+
+      it 'makes the user friends with the requested user' do
+        expect(accepted_request.user.friends)
+          .to include accepted_request.requested_friend
+      end
     end
   end
 

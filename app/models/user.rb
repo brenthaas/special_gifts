@@ -33,6 +33,11 @@ class User < ApplicationRecord
            inverse_of: :wisher,
            dependent: :destroy
 
+  has_many :friend_requests, dependent: :destroy
+  has_many :friends,
+           through: :friend_requests,
+           source: :requested_friend
+
   validates :name, presence: true
   validates :email, presence: true
 end

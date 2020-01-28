@@ -10,7 +10,6 @@ class FriendRequest < ApplicationRecord
   end
 
   def accept!
-    return true if accepted?
-    update(accepted_at: Time.now.utc)
+    accepted? || update(accepted_at: Time.now.utc)
   end
 end
