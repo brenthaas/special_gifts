@@ -4,4 +4,13 @@ class FriendRequest < ApplicationRecord
 
   validates :user_id, presence: true
   validates :requested_friend_id, presence: true
+
+  def accepted?
+    accepted_at.present?
+  end
+
+  def accept!
+    return true if accepted?
+    update(accepted_at: Time.now.utc)
+  end
 end

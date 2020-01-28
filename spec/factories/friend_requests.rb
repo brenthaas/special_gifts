@@ -5,7 +5,7 @@ FactoryBot.define do
     created_at { Time.now }
 
     trait :accepted do
-      accepted_at { 10.minutes.ago }
+      accepted_at { 10.months.ago }
     end
   end
 end
