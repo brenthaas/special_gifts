@@ -1,6 +1,5 @@
 class WishesController < ApplicationController
   before_action :load_wish, only: %i[show edit update delete]
-  before_action :check_authorization, only: %i[index new create]
 
   def create
     created_wish = current_user.wishes.build(wish_params)
@@ -53,10 +52,6 @@ class WishesController < ApplicationController
   end
 
   private
-
-  def check_authorization
-    not_found unless user_signed_in?
-  end
 
   def load_wish
     @wish = current_user.wishes.find(params[:id])

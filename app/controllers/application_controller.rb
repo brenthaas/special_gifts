@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include ::ActionController::Cookies
 
+  before_action :authenticate_user!
   before_action :set_csrf_token
 
   delegate :alert, :notice, to: :flash
