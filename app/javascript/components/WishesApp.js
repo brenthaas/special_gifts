@@ -11,12 +11,14 @@ import {
 import AddWish from './AddWish';
 import Wish from './Wish';
 import MyWishList from './MyWishList';
+import FriendsList from './FriendsList';
 import { MyWishesContextProvider } from './../contexts/MyWishesContext';
 
 const routes = [
   { path: "/my_wishes", main: () => <MyWishList /> },
   { path: "/wish/:id", main: () => <Wish /> },
-  { path: "/add_wish", main: () => <AddWish /> }
+  { path: "/add_wish", main: () => <AddWish /> },
+  { path: "/friends", main: () => <FriendsList /> },
 ];
 
 const history = createBrowserHistory();
@@ -39,6 +41,9 @@ function WishesApp(props) {
                     <Link to='/add_wish'>Add Wish</Link>
                   </li>
                 </ul>
+                <li className='sidebar-nav-item' key='Friends'>
+                  <Link to='/friends'>My Friends</Link>
+                </li>
               </ul>
             </div>
 

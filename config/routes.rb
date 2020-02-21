@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope '/api/v1' do
     resources :users, only: %i[index show] do
       resources :wishes, shallow: true
+      resources :friends, shallow: true
     end
   end
 
